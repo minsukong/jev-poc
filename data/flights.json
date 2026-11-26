@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TYO",
+    "code": "TL 208",
+    "origin": "ICN",
+    "airport": "NRT",
+    "city": "도쿄",
+    "country": "일본",
+    "terminal": "T2"
+  },
+  {
+    "id": "DAD",
+    "code": "TL 314",
+    "origin": "ICN",
+    "airport": "DAD",
+    "city": "다낭",
+    "country": "베트남",
+    "terminal": "T2"
+  }
+]

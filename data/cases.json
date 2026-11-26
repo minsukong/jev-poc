@@ -1,0 +1,62 @@
+[
+  {
+    "id": "business",
+    "title": "혼자 출장",
+    "purpose": "출장",
+    "transport": "공항철도",
+    "preference": "출발 전에 화상회의 자료를 마무리하고 싶다.",
+    "expected": "desk",
+    "flight": "TYO",
+    "minutes": 120
+  },
+  {
+    "id": "family",
+    "title": "아이 동반 가족",
+    "purpose": "가족 여행",
+    "transport": "공항철도",
+    "preference": "아이들이 놀 동안 가까이서 지켜보고 싶다.",
+    "expected": "family",
+    "flight": "TYO",
+    "minutes": 120
+  },
+  {
+    "id": "couple",
+    "title": "고령 부부",
+    "purpose": "부부 여행",
+    "transport": "공항철도",
+    "preference": "긴 보행이 부담돼 탑승구 가까이 앉아 쉬고 싶다.",
+    "expected": "gate",
+    "flight": "TYO",
+    "minutes": 120
+  },
+  {
+    "id": "meal",
+    "title": "식사가 급한 출장",
+    "purpose": "출장",
+    "transport": "공항철도",
+    "preference": "회의 준비는 끝났다. 식사를 포장해 탑승구로 가고 싶다.",
+    "expected": "meal",
+    "flight": "TYO",
+    "minutes": 120
+  },
+  {
+    "id": "data",
+    "title": "도착 직후 길찾기",
+    "purpose": "부부 여행",
+    "transport": "공항철도",
+    "preference": "도착하자마자 휴대폰으로 기차 노선을 찾아야 한다.",
+    "expected": "esim",
+    "flight": "TYO",
+    "minutes": 120
+  },
+  {
+    "id": "car",
+    "title": "자가용 출국",
+    "purpose": "혼자 여행",
+    "transport": "자가용",
+    "preference": "짐이 많아서 터미널 앞에서 차를 맡기고 싶다.",
+    "expected": "park",
+    "flight": "TYO",
+    "minutes": 120
+  }
+]

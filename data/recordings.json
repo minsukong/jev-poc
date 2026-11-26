@@ -1,0 +1,1212 @@
+{
+  "business": {
+    "input": {
+      "caseId": "business",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "공항철도"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "desk",
+          "score": 15
+        },
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "family",
+          "score": 4
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        }
+      ],
+      "excluded": [
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1270,
+        "output_tokens": 145
+      },
+      "estimatedUsd": 0.00005334,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 3.93,
+            "confidence": 0.97,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0.04,
+              "4": 0.96
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 0.75,
+            "confidence": 0.77,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.27,
+              "1": 0.72,
+              "2": 0.01,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 1.26,
+            "confidence": 0.77,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.74,
+              "2": 0.22,
+              "3": 0.02,
+              "4": 0
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.17,
+            "confidence": 0.72,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.09,
+              "1": 0.69,
+              "2": 0.19,
+              "3": 0.03,
+              "4": 0
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 1.47,
+            "confidence": 0.5,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.51,
+              "2": 0.33,
+              "3": 0.09,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "desk",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 1,
+              "family": 0,
+              "gate": 0,
+              "meal": 0,
+              "esim": 0
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.89
+          }
+        },
+        "usage": {
+          "input_tokens": 1270,
+          "output_tokens": 145
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "desk",
+          "score": 3.93
+        },
+        {
+          "id": "esim",
+          "score": 1.47
+        },
+        {
+          "id": "gate",
+          "score": 1.26
+        },
+        {
+          "id": "meal",
+          "score": 1.17
+        },
+        {
+          "id": "family",
+          "score": 0.75
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 211
+    },
+    "capturedAt": "2026-11-26T23:49:50.096Z"
+  },
+  "family": {
+    "input": {
+      "caseId": "family",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "공항철도"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "family",
+          "score": 14
+        },
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "desk",
+          "score": 5
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        }
+      ],
+      "excluded": [
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1270,
+        "output_tokens": 145
+      },
+      "estimatedUsd": 0.00005334,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 0.99,
+            "confidence": 0.84,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.09,
+              "1": 0.84,
+              "2": 0.05,
+              "3": 0.01,
+              "4": 0.01
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 3.95,
+            "confidence": 0.98,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0.03,
+              "4": 0.97
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 1.83,
+            "confidence": 0.55,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.34,
+              "2": 0.51,
+              "3": 0.1,
+              "4": 0.04
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.52,
+            "confidence": 0.5,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.49,
+              "2": 0.4,
+              "3": 0.07,
+              "4": 0.01
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 1.91,
+            "confidence": 0.53,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.26,
+              "2": 0.48,
+              "3": 0.22,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "family",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 0,
+              "family": 1,
+              "gate": 0,
+              "meal": 0,
+              "esim": 0
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.94
+          }
+        },
+        "usage": {
+          "input_tokens": 1270,
+          "output_tokens": 145
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "family",
+          "score": 3.95
+        },
+        {
+          "id": "esim",
+          "score": 1.91
+        },
+        {
+          "id": "gate",
+          "score": 1.83
+        },
+        {
+          "id": "meal",
+          "score": 1.52
+        },
+        {
+          "id": "desk",
+          "score": 0.99
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 164
+    },
+    "capturedAt": "2026-11-26T23:49:50.262Z"
+  },
+  "couple": {
+    "input": {
+      "caseId": "couple",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "공항철도"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "gate",
+          "score": 16
+        },
+        {
+          "id": "desk",
+          "score": 5
+        },
+        {
+          "id": "family",
+          "score": 4
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        }
+      ],
+      "excluded": [
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1276,
+        "output_tokens": 145
+      },
+      "estimatedUsd": 0.000053592000000000005,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 1.72,
+            "confidence": 0.34,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.47,
+              "2": 0.3,
+              "3": 0.14,
+              "4": 0.06
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 1.29,
+            "confidence": 0.66,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.67,
+              "2": 0.2,
+              "3": 0.06,
+              "4": 0.01
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 3.96,
+            "confidence": 0.98,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0.03,
+              "4": 0.97
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.73,
+            "confidence": 0.33,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.4,
+              "2": 0.39,
+              "3": 0.16,
+              "4": 0.02
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 1.47,
+            "confidence": 0.48,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.49,
+              "2": 0.35,
+              "3": 0.09,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "gate",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 0,
+              "family": 0,
+              "gate": 1,
+              "meal": 0,
+              "esim": 0
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.94
+          }
+        },
+        "usage": {
+          "input_tokens": 1276,
+          "output_tokens": 145
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "gate",
+          "score": 3.96
+        },
+        {
+          "id": "meal",
+          "score": 1.73
+        },
+        {
+          "id": "desk",
+          "score": 1.72
+        },
+        {
+          "id": "esim",
+          "score": 1.47
+        },
+        {
+          "id": "family",
+          "score": 1.29
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 153
+    },
+    "capturedAt": "2026-11-26T23:49:50.415Z"
+  },
+  "meal": {
+    "input": {
+      "caseId": "meal",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "공항철도"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "desk",
+          "score": 15
+        },
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "family",
+          "score": 4
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        }
+      ],
+      "excluded": [
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1276,
+        "output_tokens": 145
+      },
+      "estimatedUsd": 0.000053592000000000005,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 1.16,
+            "confidence": 0.74,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.08,
+              "1": 0.75,
+              "2": 0.12,
+              "3": 0.04,
+              "4": 0.01
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 0.76,
+            "confidence": 0.75,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.28,
+              "1": 0.7,
+              "2": 0.02,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 2.02,
+            "confidence": 0.42,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.31,
+              "2": 0.4,
+              "3": 0.2,
+              "4": 0.08
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 3.98,
+            "confidence": 1,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 1
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 1.55,
+            "confidence": 0.46,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.49,
+              "2": 0.34,
+              "3": 0.12,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "meal",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 0,
+              "family": 0,
+              "gate": 0,
+              "meal": 1,
+              "esim": 0
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.95
+          }
+        },
+        "usage": {
+          "input_tokens": 1276,
+          "output_tokens": 145
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "meal",
+          "score": 3.98
+        },
+        {
+          "id": "gate",
+          "score": 2.02
+        },
+        {
+          "id": "esim",
+          "score": 1.55
+        },
+        {
+          "id": "desk",
+          "score": 1.16
+        },
+        {
+          "id": "family",
+          "score": 0.76
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 153
+    },
+    "capturedAt": "2026-11-26T23:49:50.568Z"
+  },
+  "data": {
+    "input": {
+      "caseId": "data",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "공항철도"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "gate",
+          "score": 16
+        },
+        {
+          "id": "desk",
+          "score": 5
+        },
+        {
+          "id": "family",
+          "score": 4
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        }
+      ],
+      "excluded": [
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1274,
+        "output_tokens": 146
+      },
+      "estimatedUsd": 0.000053508,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 1.68,
+            "confidence": 0.29,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.09,
+              "1": 0.45,
+              "2": 0.25,
+              "3": 0.12,
+              "4": 0.09
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 0.78,
+            "confidence": 0.72,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.28,
+              "1": 0.67,
+              "2": 0.04,
+              "3": 0.01,
+              "4": 0
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 1.02,
+            "confidence": 0.49,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.29,
+              "1": 0.5,
+              "2": 0.13,
+              "3": 0.05,
+              "4": 0.03
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.08,
+            "confidence": 0.63,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.17,
+              "1": 0.62,
+              "2": 0.16,
+              "3": 0.04,
+              "4": 0.01
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 3.88,
+            "confidence": 0.92,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0.01,
+              "2": 0.01,
+              "3": 0.05,
+              "4": 0.93
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "esim",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 0,
+              "family": 0,
+              "gate": 0,
+              "meal": 0,
+              "esim": 1
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.89
+          }
+        },
+        "usage": {
+          "input_tokens": 1274,
+          "output_tokens": 146
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "esim",
+          "score": 3.88
+        },
+        {
+          "id": "desk",
+          "score": 1.68
+        },
+        {
+          "id": "meal",
+          "score": 1.08
+        },
+        {
+          "id": "gate",
+          "score": 1.02
+        },
+        {
+          "id": "family",
+          "score": 0.78
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 168
+    },
+    "capturedAt": "2026-11-26T23:49:50.737Z"
+  },
+  "car": {
+    "input": {
+      "caseId": "car",
+      "flight": "TYO",
+      "minutes": 120,
+      "transport": "자가용"
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "desk",
+          "score": 5
+        },
+        {
+          "id": "family",
+          "score": 4
+        },
+        {
+          "id": "meal",
+          "score": 3
+        },
+        {
+          "id": "esim",
+          "score": 2
+        },
+        {
+          "id": "park",
+          "score": 1
+        }
+      ],
+      "excluded": [
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1441,
+        "output_tokens": 167
+      },
+      "estimatedUsd": 0.00006052200000000001,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_desk": {
+            "type": "score",
+            "score": 1.2,
+            "confidence": 0.55,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.17,
+              "1": 0.52,
+              "2": 0.26,
+              "3": 0.04,
+              "4": 0.01
+            }
+          },
+          "fit_family": {
+            "type": "score",
+            "score": 0.69,
+            "confidence": 0.7,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.34,
+              "1": 0.64,
+              "2": 0.02,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "fit_gate": {
+            "type": "score",
+            "score": 1.38,
+            "confidence": 0.52,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.1,
+              "1": 0.52,
+              "2": 0.3,
+              "3": 0.07,
+              "4": 0.01
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.12,
+            "confidence": 0.6,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.18,
+              "1": 0.57,
+              "2": 0.21,
+              "3": 0.03,
+              "4": 0.01
+            }
+          },
+          "fit_esim": {
+            "type": "score",
+            "score": 2.21,
+            "confidence": 0.46,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.14,
+              "2": 0.42,
+              "3": 0.37,
+              "4": 0.03
+            }
+          },
+          "fit_park": {
+            "type": "score",
+            "score": 3.98,
+            "confidence": 0.99,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0.01,
+              "4": 0.99
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "park",
+            "confidence": 1,
+            "probabilities": {
+              "desk": 0,
+              "family": 0,
+              "gate": 0,
+              "meal": 0,
+              "esim": 0,
+              "park": 1
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.95
+          }
+        },
+        "usage": {
+          "input_tokens": 1441,
+          "output_tokens": 167
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "park",
+          "score": 3.98
+        },
+        {
+          "id": "esim",
+          "score": 2.21
+        },
+        {
+          "id": "gate",
+          "score": 1.38
+        },
+        {
+          "id": "desk",
+          "score": 1.2
+        },
+        {
+          "id": "meal",
+          "score": 1.12
+        },
+        {
+          "id": "family",
+          "score": 0.69
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 179
+    },
+    "capturedAt": "2026-11-26T23:49:50.916Z"
+  }
+}

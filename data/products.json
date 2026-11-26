@@ -1,0 +1,86 @@
+[
+  {
+    "id": "desk",
+    "name": "워크 라운지",
+    "category": "라운지",
+    "description": "독립 업무석, 전원과 조용한 통화 공간이 있다.",
+    "minMinutes": 50,
+    "tag": "업무",
+    "terminal": "T2",
+    "country": null,
+    "transport": null,
+    "priority": 5
+  },
+  {
+    "id": "family",
+    "name": "패밀리 라운지",
+    "category": "라운지",
+    "description": "아이 놀이 공간과 보호자 좌석이 붙어 있고 간식을 제공한다.",
+    "minMinutes": 55,
+    "tag": "아이 돌봄",
+    "terminal": "T2",
+    "country": null,
+    "transport": null,
+    "priority": 4
+  },
+  {
+    "id": "gate",
+    "name": "게이트 옆 휴게석",
+    "category": "휴식",
+    "description": "탑승구와 같은 층에서 짧게 걷고 등받이 좌석에서 쉴 수 있다.",
+    "minMinutes": 20,
+    "tag": "짧은 동선",
+    "terminal": "T2",
+    "country": null,
+    "transport": null,
+    "priority": 6
+  },
+  {
+    "id": "meal",
+    "name": "테이크아웃 식사권",
+    "category": "다이닝",
+    "description": "탑승구로 이동하면서 포장 식사를 수령할 수 있다.",
+    "minMinutes": 15,
+    "tag": "빠른 식사",
+    "terminal": null,
+    "country": null,
+    "transport": null,
+    "priority": 3
+  },
+  {
+    "id": "esim",
+    "name": "일본 데이터 eSIM",
+    "category": "연결",
+    "description": "일본 도착 직후 지도와 메신저를 이용할 수 있다.",
+    "minMinutes": 5,
+    "tag": "현지 데이터",
+    "terminal": null,
+    "country": "일본",
+    "transport": null,
+    "priority": 2
+  },
+  {
+    "id": "park",
+    "name": "주차 대행",
+    "category": "교통",
+    "description": "자가용으로 출발하는 고객의 터미널 차량 인계를 지원한다.",
+    "minMinutes": 45,
+    "tag": "주차",
+    "terminal": null,
+    "country": null,
+    "transport": "자가용",
+    "priority": 1
+  },
+  {
+    "id": "other",
+    "name": "T1 샤워 라운지",
+    "category": "라운지",
+    "description": "개별 샤워실을 제공한다.",
+    "minMinutes": 40,
+    "tag": "휴식",
+    "terminal": "T1",
+    "country": null,
+    "transport": null,
+    "priority": 0
+  }
+]
