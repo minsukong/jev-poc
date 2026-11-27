@@ -17,6 +17,7 @@ details {
   background: white;
   border: 1px solid #d6dfe9;
   border-radius: 9px;
+  overflow: hidden;
   interpolate-size: allow-keywords;
 }
 summary {
@@ -43,7 +44,11 @@ summary::after {
   transform: translateY(-2px) rotate(45deg);
   transition: transform 180ms ease-out;
 }
-summary:hover { color: #164b9f; }
+@media (hover: hover) {
+  summary:hover { background: #edf4ff; color: #164b9f; }
+}
+summary:focus-visible { background: #edf4ff; outline-offset: -3px; }
+details[open] > summary { border-radius: 8px 8px 0 0; }
 details[open] > summary { color: #164b9f; }
 details[open] > summary::after { transform: translateY(2px) rotate(225deg); }
 .disclosure-body {
