@@ -47,14 +47,20 @@ summary:hover { color: #164b9f; }
 details[open] > summary { color: #164b9f; }
 details[open] > summary::after { transform: translateY(2px) rotate(225deg); }
 .disclosure-body {
-  background: white;
+  background: #f1f3f6;
+  padding: clamp(6px, 1vw, 10px);
   border-radius: 0 0 8px 8px;
-  padding: 14px 16px;
+}
+.disclosure-body > .inner {
   display: flow-root;
+  min-width: 0;
+  background: #fff;
+  padding: clamp(12px, 2vw, 18px);
+  border-radius: 6px;
 }
 .disclosure-body p + p,.disclosure-body dl,.disclosure-body .scroll { margin-top: 10px; }
 .disclosure-body details { border: 0; }
-.disclosure-body details .disclosure-body { padding: 0 12px 12px; background: white; }
+.disclosure-body details .disclosure-body { padding: 5px; border-radius: 6px; }
 .disclosure-body pre { margin: 0; border-radius: 6px; }
 @supports (interpolate-size: allow-keywords) and (transition-behavior: allow-discrete) {
   details::details-content {
