@@ -41,7 +41,12 @@ function App(){
     : '이용 조건을 만족하는 상품이 없습니다.';
   const rightTitle=fallback?'장애 시 대체 추천':mode==='mock'?'모의 추천':'Jev 추천';
   const seconds=result?(result.elapsedMs/1000).toFixed(3):'';
-  return <><header className="mast"><img className="brand-logo" src={new URL("./assets/logo.svg",import.meta.url).href} width="150" height="30" alt="더라운지" /><a className="guide-link" href="./guide.html">Jev 도입 가이드</a></header>
+  return <><header className="mast"><img className="brand-logo" src={new URL("./assets/logo.svg",import.meta.url).href} width="150" height="30" alt="더라운지" /><a className="guide-link" href="./guide.html" target="_blank" rel="noopener noreferrer" aria-label="Jev 도입 가이드 (새 탭에서 열기)">
+      Jev 도입 가이드
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 3h7v7m0-7L10 14M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>
+      </svg>
+    </a></header>
     <main><section className="intro"><div><h1>항공편별 추천 상품</h1><p>인천 출발 항공편을 선택하면 출국 위치와 여행 상황에 맞는 상품을 안내합니다.</p></div><div className="photo" aria-hidden="true"/></section>
     <nav className="view" aria-label="운항정보 선택">{(['airport','demo'] as const).map(v=><button key={v} aria-pressed={view===v} onClick={()=>setView(v)}>{v==='airport'?'실제 운항편':'가상 조건 실험'}</button>)}</nav>
     {view==='airport'?<section className="recorded">

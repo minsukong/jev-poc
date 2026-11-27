@@ -130,4 +130,35 @@ select:enabled:hover { border-color: #6688b5; }
 .excluded dt { margin: 0; }
 @media(max-width:600px) { .pair { gap: 8px; } .rankings td span { display: grid; } }
 
-.guide-link { font-size: 15px; font-weight: 650; text-underline-offset: 4px; }
+.guide-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 8px;
+  background: #1554bd;
+  color: white;
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 200ms ease-out;
+}
+.guide-link:is(:hover, :focus-visible) { background-color: #10439a; }
+a:not(.guide-link):not(:has(img)) {
+  text-decoration: none;
+  padding-bottom: 2px;
+  background: linear-gradient(#559cff, #559cff) left bottom / 0 2px no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: color 200ms ease-out, background-size 200ms ease-out;
+}
+a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
+  color: #1765d8;
+  background-size: 100% 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  a.guide-link, a:not(.guide-link):not(:has(img)) { transition: none; }
+}
