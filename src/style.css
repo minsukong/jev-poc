@@ -129,3 +129,5 @@ select:enabled:hover { border-color: #6688b5; }
 .excluded div { display: grid; grid-template-columns: minmax(8em,1fr) 2fr; gap: 12px; padding: 5px 0; }
 .excluded dt { margin: 0; }
 @media(max-width:600px) { .pair { gap: 8px; } .rankings td span { display: grid; } }
+
+.guide-link { font-size: 15px; font-weight: 650; text-underline-offset: 4px; }
