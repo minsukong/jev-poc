@@ -6,7 +6,8 @@
     "airport": "NRT",
     "city": "도쿄",
     "country": "일본",
-    "terminal": "T2"
+    "terminal": "T2",
+    "zone": "동편"
   },
   {
     "id": "DAD",
@@ -15,6 +16,17 @@
     "airport": "DAD",
     "city": "다낭",
     "country": "베트남",
-    "terminal": "T2"
+    "terminal": "T2",
+    "zone": "서편"
+  },
+  {
+    "id": "KIX",
+    "code": "TL 126",
+    "origin": "ICN",
+    "airport": "KIX",
+    "city": "오사카",
+    "country": "일본",
+    "terminal": "T1",
+    "zone": "중앙"
   }
 ]

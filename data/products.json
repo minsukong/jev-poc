@@ -10,7 +10,8 @@
     "country": null,
     "transport": null,
     "priority": 5,
-    "displayDescription": "독립 업무석과 전원, 조용한 통화 공간을 이용할 수 있습니다."
+    "displayDescription": "독립 업무석과 전원, 조용한 통화 공간을 이용할 수 있습니다.",
+    "zone": "동편"
   },
   {
     "id": "family",
@@ -23,7 +24,8 @@
     "country": null,
     "transport": null,
     "priority": 4,
-    "displayDescription": "아이 놀이 공간 옆에 보호자 좌석이 있으며 간식도 제공합니다."
+    "displayDescription": "아이 놀이 공간 옆에 보호자 좌석이 있으며 간식도 제공합니다.",
+    "zone": "동편"
   },
   {
     "id": "gate",

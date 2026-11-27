@@ -1,0 +1,386 @@
+[
+  {
+    "date": "2026-11-27",
+    "flight": {
+      "code": "KE863",
+      "city": "베이징/서우두",
+      "airport": "PEK",
+      "origin": "ICN",
+      "country": "미확인",
+      "terminal": "T2",
+      "zone": null,
+      "gate": "222",
+      "minutes": 693
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "meal",
+          "score": 3
+        }
+      ],
+      "excluded": [
+        {
+          "id": "desk",
+          "reasons": [
+            "출국장 위치 불일치"
+          ]
+        },
+        {
+          "id": "family",
+          "reasons": [
+            "출국장 위치 불일치"
+          ]
+        },
+        {
+          "id": "esim",
+          "reasons": [
+            "서비스 국가 불일치"
+          ]
+        },
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 809,
+        "output_tokens": 79
+      },
+      "estimatedUsd": 0.000033978,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_gate": {
+            "type": "score",
+            "score": 1.91,
+            "confidence": 0.57,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.28,
+              "2": 0.54,
+              "3": 0.13,
+              "4": 0.04
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.12,
+            "confidence": 0.67,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.14,
+              "1": 0.65,
+              "2": 0.17,
+              "3": 0.03,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "gate",
+            "confidence": 0.98,
+            "probabilities": {
+              "gate": 0.99,
+              "meal": 0.01
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.3
+          }
+        },
+        "usage": {
+          "input_tokens": 809,
+          "output_tokens": 79
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "gate",
+          "score": 1.91
+        },
+        {
+          "id": "meal",
+          "score": 1.12
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 166
+    },
+    "capturedAt": "2026-11-27T00:16:23.287Z"
+  },
+  {
+    "date": "2026-11-27",
+    "flight": {
+      "code": "ZE593",
+      "city": "다낭",
+      "airport": "DAD",
+      "origin": "ICN",
+      "country": "베트남",
+      "terminal": "탑승동",
+      "zone": null,
+      "gate": "119",
+      "minutes": 698
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "meal",
+          "score": 3
+        }
+      ],
+      "excluded": [
+        {
+          "id": "desk",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        },
+        {
+          "id": "family",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        },
+        {
+          "id": "gate",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        },
+        {
+          "id": "esim",
+          "reasons": [
+            "서비스 국가 불일치"
+          ]
+        },
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 539,
+        "output_tokens": 37
+      },
+      "estimatedUsd": 0.000022638000000000002,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_meal": {
+            "type": "score",
+            "score": 1.34,
+            "confidence": 0.58,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.07,
+              "1": 0.59,
+              "2": 0.26,
+              "3": 0.07,
+              "4": 0.01
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.16
+          }
+        },
+        "usage": {
+          "input_tokens": 539,
+          "output_tokens": 37
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "meal",
+          "score": 1.34
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 164
+    },
+    "capturedAt": "2026-11-27T00:16:23.539Z"
+  },
+  {
+    "date": "2026-11-27",
+    "flight": {
+      "code": "KE625",
+      "city": "마닐라",
+      "airport": "MNL",
+      "origin": "ICN",
+      "country": "미확인",
+      "terminal": "T2",
+      "zone": null,
+      "gate": "245",
+      "minutes": 648
+    },
+    "result": {
+      "rules": [
+        {
+          "id": "gate",
+          "score": 6
+        },
+        {
+          "id": "meal",
+          "score": 3
+        }
+      ],
+      "excluded": [
+        {
+          "id": "desk",
+          "reasons": [
+            "출국장 위치 불일치"
+          ]
+        },
+        {
+          "id": "family",
+          "reasons": [
+            "출국장 위치 불일치"
+          ]
+        },
+        {
+          "id": "esim",
+          "reasons": [
+            "서비스 국가 불일치"
+          ]
+        },
+        {
+          "id": "park",
+          "reasons": [
+            "자가용 전용"
+          ]
+        },
+        {
+          "id": "other",
+          "reasons": [
+            "터미널 불일치"
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 806,
+        "output_tokens": 79
+      },
+      "estimatedUsd": 0.00003385200000000001,
+      "raw": {
+        "model": "jev-1.14.0",
+        "answers": {
+          "fit_gate": {
+            "type": "score",
+            "score": 2.07,
+            "confidence": 0.54,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.22,
+              "2": 0.52,
+              "3": 0.19,
+              "4": 0.06
+            }
+          },
+          "fit_meal": {
+            "type": "score",
+            "score": 1.19,
+            "confidence": 0.65,
+            "legend": {
+              "0": "상황과 무관함",
+              "1": "관련성이 낮음",
+              "2": "일부 도움이 됨",
+              "3": "상황에 잘 맞음",
+              "4": "고객이 명시한 필요를 직접 해결함"
+            },
+            "probabilities": {
+              "0": 0.11,
+              "1": 0.64,
+              "2": 0.2,
+              "3": 0.04,
+              "4": 0.01
+            }
+          },
+          "best": {
+            "type": "choice",
+            "choice": "gate",
+            "confidence": 1,
+            "probabilities": {
+              "gate": 1,
+              "meal": 0
+            }
+          },
+          "relevant": {
+            "type": "noul",
+            "noul": 0.32
+          }
+        },
+        "usage": {
+          "input_tokens": 806,
+          "output_tokens": 79
+        }
+      },
+      "model": "jev-1.14.0",
+      "error": null,
+      "rows": [
+        {
+          "id": "gate",
+          "score": 2.07
+        },
+        {
+          "id": "meal",
+          "score": 1.19
+        }
+      ],
+      "source": "live",
+      "elapsedMs": 160
+    },
+    "capturedAt": "2026-11-27T00:16:23.802Z"
+  }
+]

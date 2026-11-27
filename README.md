@@ -6,7 +6,7 @@
 
 ## 실행
 
-Node 24 기준. `npm ci` 후 터미널 두 개에서 `npm run server`, `npm run dev`를 실행하고 http://127.0.0.1:5173 을 연다. 서버 환경변수 TYPESAFE_API_KEY를 사용한다. 로컬 .env도 지원한다. `npm test`로 회귀 테스트를 실행한다. `npm run capture`는 실제 유료 API를 6회 호출하고 전부 성공하면 재생 자료를 갱신한다. `npm run build`는 GitHub Pages용 docs/를 갱신한다. 저장소 Pages 소스는 main /docs다.
+Node 24 기준. `npm ci` 후 터미널 두 개에서 `npm run server`, `npm run dev`를 실행하고 http://127.0.0.1:5173 을 연다. 서버 환경변수 TYPESAFE_API_KEY를 사용한다. 로컬 .env도 지원한다. `npm test`로 회귀 테스트를 실행한다. `npm run capture`는 실제 유료 API를 18회 호출하고 전부 성공하면 재생 자료를 갱신한다. `npm run build`는 GitHub Pages용 docs/를 갱신한다. 저장소 Pages 소스는 main /docs다.
 
 ## 시연 순서
 
@@ -27,3 +27,8 @@ Node 24 기준. `npm ci` 후 터미널 두 개에서 `npm run server`, `npm run 
 - [판단 유형](https://docs.typesafe.ai/primitives)
 - [요금](https://help.typesafe.ai/articles/5187202169-how-much-does-jev-cost)
 
+
+공개 시연에는 가상 항공편 3편과 고객 상황 6종의 실측 조합을 제공합니다. 터미널과 출국장 위치는 예시입니다. 서체는 Pretendard GOV 1.3.9이며 라이선스는 public/fonts/LICENSE.txt에 있습니다. 상단 이미지는 이 시연을 위해 생성한 라운지 이미지입니다.
+
+## 실제 운항편 조회
+공공데이터포털에서 인천국제공항공사 항공기 운항 현황 상세 조회 서비스의 활용 승인을 받은 뒤 로컬 서버에 DATA_GO_KR_SERVICE_KEY를 등록한다. npm run server와 npm run dev를 실행하고 실제 운항편 → 다른 실제 항공편 조회에서 출발일과 편명을 입력한다. 조회일 기준 -3~+6일의 승인된 운항계획을 제공하며 이 시연은 출발 전 여객편만 추천한다. 공공 API와 Jev 키는 서버에서만 사용한다. GitHub Pages 첫 화면은 서버에서 조회해 저장한 운항편과 Jev 응답의 재생이다. 상품과 고객 조건은 가상이다. 실제 운항 응답으로 확인되지 않은 출국장 구역을 추정하지 않는다.

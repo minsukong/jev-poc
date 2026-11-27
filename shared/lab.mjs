@@ -2,15 +2,16 @@ import products from '../data/products.json' with {type:'json'};
 import cases from '../data/cases.json' with {type:'json'};
 import flights from '../data/flights.json' with {type:'json'};
 export {products,cases,flights};
-export function prepare(input){
+export function prepare(input,departure=null){
   const scenario=cases.find(c=>c.id===input.caseId);
-  const flight=flights.find(f=>f.id===input.flight);
-  if(!scenario||!flight||!['공항철도','자가용','택시'].includes(input.transport)||![10,30,60,120,180].includes(input.minutes)) throw Error('허용된 가상 시나리오를 선택해 줘.');
-  const customer={purpose:scenario.purpose,preference:scenario.preference,transport:input.transport,minutes:input.minutes};
+  const flight=departure??flights.find(f=>f.id===input.flight);
+  if(!scenario||!flight||!['공항철도','자가용','택시'].includes(input.transport)||(!departure&&! [10,30,60,120,180].includes(input.minutes))) throw Error('허용된 가상 시나리오를 선택해 줘.');
+  const customer={purpose:scenario.purpose,preference:scenario.preference,transport:input.transport,minutes:departure?.minutes??input.minutes};
   const eligible=[], excluded=[];
   for(const p of products){
     const reasons=[];
     if(p.terminal && p.terminal!==flight.terminal) reasons.push('터미널 불일치');
+    if(p.zone && p.terminal===flight.terminal && p.zone!==flight.zone) reasons.push('출국장 위치 불일치');
     if(p.country && p.country!==flight.country) reasons.push('서비스 국가 불일치');
     if(p.transport && p.transport!==customer.transport) reasons.push('자가용 전용');
     if(p.minMinutes>customer.minutes) reasons.push('필요 시간 '+p.minMinutes+'분');

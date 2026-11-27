@@ -1,7 +1,7 @@
 import {prepare,baseline} from '../shared/lab.mjs';
 import {jevProvider} from './providers.mjs';
-export async function decide(input,provider=jevProvider()){
-  const ctx=prepare(input),rules=baseline(ctx);
+export async function decide(input,provider=jevProvider(),departure=null){
+  const ctx=prepare(input,departure),rules=baseline(ctx);
   const start=performance.now();
   const base={rules,excluded:ctx.excluded,usage:null,estimatedUsd:null,raw:null,model:null,error:null};
   if(!rules.length) return {...base,source:'empty',rows:[],elapsedMs:0};
