@@ -9,7 +9,8 @@
     "terminal": "T2",
     "country": null,
     "transport": null,
-    "priority": 5
+    "priority": 5,
+    "displayDescription": "독립 업무석과 전원, 조용한 통화 공간을 이용할 수 있습니다."
   },
   {
     "id": "family",
@@ -21,7 +22,8 @@
     "terminal": "T2",
     "country": null,
     "transport": null,
-    "priority": 4
+    "priority": 4,
+    "displayDescription": "아이 놀이 공간 옆에 보호자 좌석이 있으며 간식도 제공합니다."
   },
   {
     "id": "gate",
@@ -33,7 +35,8 @@
     "terminal": "T2",
     "country": null,
     "transport": null,
-    "priority": 6
+    "priority": 6,
+    "displayDescription": "탑승구와 같은 층에 있어 이동 거리가 짧습니다. 등받이 좌석에서 쉴 수 있습니다."
   },
   {
     "id": "meal",
@@ -45,7 +48,8 @@
     "terminal": null,
     "country": null,
     "transport": null,
-    "priority": 3
+    "priority": 3,
+    "displayDescription": "탑승구로 이동하는 길에 포장한 식사를 받을 수 있습니다."
   },
   {
     "id": "esim",
@@ -57,7 +61,8 @@
     "terminal": null,
     "country": "일본",
     "transport": null,
-    "priority": 2
+    "priority": 2,
+    "displayDescription": "일본에 도착하면 바로 지도와 메신저를 이용할 수 있습니다."
   },
   {
     "id": "park",
@@ -69,7 +74,8 @@
     "terminal": null,
     "country": null,
     "transport": "자가용",
-    "priority": 1
+    "priority": 1,
+    "displayDescription": "자가용 이용 고객은 터미널에서 차량을 맡길 수 있습니다."
   },
   {
     "id": "other",
@@ -81,6 +87,7 @@
     "terminal": "T1",
     "country": null,
     "transport": null,
-    "priority": 0
+    "priority": 0,
+    "displayDescription": "개별 샤워실을 이용할 수 있습니다."
   }
 ]
