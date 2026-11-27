@@ -218,8 +218,8 @@ a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
 .line small { color: #52647a; }
 .request-copy { margin: 26px 0 24px; }
 .request-copy strong { color: #435771; font-size: 14px; }
-.request-copy blockquote { margin: 6px 0 0; font-size: 18px; line-height: 1.7; }
-.recorded .pick { padding: clamp(18px, 3vw, 28px); gap: 20px; }
+.request-copy blockquote { margin: 10px 0 0; font-size: clamp(20px, 2.6vw, 24px); font-weight: 620; line-height: 1.55; color: #182f4a; }
+.recorded .pick { background: #f2f7ff; padding: clamp(18px, 3vw, 28px); gap: 20px; }
 .recorded .pick h3 { margin: 8px 0 10px; }
 .recorded .pick p { line-height: 1.7; }
 .recorded .score { border-left: 1px solid #d4deea; padding-left: 24px; }
@@ -228,5 +228,5 @@ a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
 @media (max-width: 600px) {
   .recorded .pick { align-items: stretch; flex-direction: column; gap: 14px; }
   .recorded .score { display: flex; align-items: baseline; gap: 10px; padding: 12px 0 0; border: 0; border-top: 1px solid #d4deea; }
-  .request-copy blockquote { font-size: 17px; }
+
 }
