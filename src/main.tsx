@@ -54,7 +54,7 @@ function App(){
       <div><small>출발 위치</small><strong>인천 {snapshot.flight.terminal}</strong></div><div><small>탑승구</small><strong>{snapshot.flight.gate}번</strong></div></div>
       <p className="source">{snapshot.date} 출발편 · {stamp} (한국시간) 조회 기록<br/>항공편 정보는 <a href="https://www.data.go.kr/data/15140153/openapi.do">인천국제공항공사 항공기 운항 현황 상세 조회 API</a>에서 가져왔습니다.</p>
       <div className="line"><h2>추천 상품</h2><small>가상 상품 · 실제 Jev 응답</small></div>
-      <p className="quote">출장 고객 · “{cases[0].preference}”</p>
+      <div className="request-copy"><strong>출장 고객의 요청</strong><blockquote>“{cases[0].preference}”</blockquote></div>
       <article className="pick"><div><small>후보 {snapshot.result.rows.length}개 중 1위</small><h3>{recordedTop.name}</h3><p>{recordedTop.displayDescription}</p></div><div className="score"><small>적합도</small><strong>{snapshot.result.rows[0].score.toFixed(2)} <em>/ 4</em></strong></div></article>
       {snapshot.result.rows.every(row => ['gate', 'meal'].includes(row.id)) && <p className="fit-notice"><strong>업무 공간을 찾는 고객에게는 추천하기 어렵습니다.</strong>이용 가능한 상품 중 조용한 업무 공간을 제공한다고 안내한 곳이 없습니다.</p>}
       <details><summary>추천 기준과 측정 결과</summary><div className="disclosure-body"><div className="inner"><p>인천공항 API가 제공한 터미널과 목적지, 출발까지 남은 시간으로 상품을 추렸습니다. 실제 보안검색 출국장과 상품까지의 도보 거리는 확인되지 않아 동·서편 전용 상품은 제외했습니다. Jev가 고객의 요청과 후보 상품의 설명을 읽고 적합도를 평가했습니다.</p><p>규칙 기반 1위 · {item(snapshot.result.rules[0].id).name}<br/>Jev 응답 시간 · {snapshot.result.elapsedMs}ms<br/>예상 API 비용 · ${snapshot.result.estimatedUsd.toFixed(8)} (입력 {snapshot.result.usage.input_tokens}토큰)</p><details><summary>Jev 원본 응답</summary><div className="disclosure-body"><div className="inner"><pre>{JSON.stringify(snapshot.result.raw,null,2)}</pre></div></div></details></div></div></details>
