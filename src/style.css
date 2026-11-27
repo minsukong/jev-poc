@@ -60,10 +60,22 @@ details[open] > summary::after { transform: translateY(2px) rotate(225deg); }
   display: flow-root;
   min-width: 0;
   background: #fff;
-  padding: clamp(12px, 2vw, 18px);
+  padding: clamp(18px, 3vw, 28px);
   border-radius: 6px;
 }
-.disclosure-body p + p,.disclosure-body dl,.disclosure-body .scroll { margin-top: 10px; }
+.inner > * + * { margin-block-start: 20px; }
+.inner > p, .inner dd { line-height: 1.7; color: #2e4055; }
+.inner dl > dt + dd { margin-top: 5px; }
+.inner dl > dd + dt { margin-top: 22px; }
+.settings .inner { display: grid; gap: 22px; }
+.settings .inner > * { margin: 0; }
+.settings label { display: grid; gap: 8px; color: #182b45; font-weight: 650; }
+.settings select { font-weight: 500; }
+.settings .inner > label { width: min(100%, 320px); }
+.settings fieldset { padding: 0; gap: 16px 24px; }
+.settings fieldset label { min-width: 110px; }
+.settings select:disabled { opacity: 1; color: #536176; background-color: #f8f9fb; }
+
 .disclosure-body details { border: 0; }
 .disclosure-body details .disclosure-body { padding: 5px; border-radius: 6px; }
 .disclosure-body pre { margin: 0; border-radius: 6px; }

@@ -64,7 +64,7 @@ function App(){
     {mode==='live'&&<button onClick={run} disabled={busy}>{busy?'요청 중…':'실시간 추천 실행'}</button>}
       <details className="settings"><summary>실행 방식과 여행 조건 변경</summary><div className="disclosure-body"><div className="inner">
         <label>실행 방식 <select value={mode} disabled={busy} onChange={e=>switchMode(e.target.value as Mode)}><option value="record">저장한 Jev 응답 재생</option><option value="mock">모의 실험 (Mock)</option><option value="live" disabled={!local}>로컬 서버로 Jev 실시간 호출</option></select></label>
-        <p>재생 모드에서는 각 사례의 추천 결과와 측정 당시의 조건을 확인합니다. 모의 실험에서는 시간이나 목적지를 바꾸면 이용 가능한 상품과 예시 순위를 확인할 수 있습니다. 실시간 호출은 API 키가 등록된 로컬 서버에서 가능합니다.</p>
+        <p>{mode==='record'?'저장된 Jev 응답을 재생합니다. 이동 수단이나 남은 시간을 바꾸려면 ‘모의 실험’을 선택하세요.':mode==='mock'?'이동 수단이나 남은 시간을 바꾸면 예시 순위가 달라집니다. 모의 실험은 API를 호출하지 않습니다.':'여행 조건을 선택한 뒤 ‘실시간 추천 실행’을 누르면 로컬 서버에서 Jev를 호출합니다.'}</p>
         <fieldset disabled={busy||mode==='record'}><label>공항 이동<select value={input.transport} onChange={e=>change({...input,transport:e.target.value})}>{['공항철도','자가용','택시'].map(v=><option key={v}>{v}</option>)}</select></label>
         <label>출발까지<select value={input.minutes} onChange={e=>change({...input,minutes:+e.target.value})}>{[10,30,60,120,180].map(v=><option key={v} value={v}>{v}분</option>)}</select></label></fieldset></div></div></details>
       <details><summary>규칙 기반 추천과 Jev 비교</summary><div className="disclosure-body"><div className="inner"><p>백엔드가 이용 조건에 맞는 상품 {ctx.eligible.length}개를 추립니다. Jev는 고객의 필요와 상품 설명을 읽고 각 후보의 적합도를 평가하는 TypeSafe AI의 모델입니다.</p>
