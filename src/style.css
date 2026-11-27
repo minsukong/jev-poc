@@ -193,3 +193,14 @@ a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
 @media (prefers-reduced-motion: reduce) {
   a.guide-link, a:not(.guide-link):not(:has(img)) { transition: none; }
 }
+
+.fit-notice {
+  padding: 15px 18px;
+  border-left: 4px solid #b86a09;
+  border-radius: 6px;
+  background: #fff5df;
+  color: #60431b;
+  line-height: 1.65;
+}
+.fit-notice strong { display: block; margin-bottom: 4px; color: #713c07; }
+.pick + .fit-notice { margin: 12px 0 20px; }
