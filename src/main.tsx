@@ -56,7 +56,7 @@ function App(){
       <div className="pair"><article><small>규칙 기반 추천</small><h3>{winner?item(winner.id).name:'후보 없음'}</h3><p>{ruleNote}</p></article>
         <article className="decision"><small>{rightTitle}</small><h3>{top?item(top).name:ctx.eligible.length?'실행 대기':'후보 없음'}</h3><p>{fallback?ruleNote:top?item(top).displayDescription:'이 조건에서 표시할 추천 결과가 없습니다.'}</p>
         {top&&!fallback&&<small>{mode==='mock'?'문구 매칭 예시 점수':'Jev가 매긴 적합도'} {result!.rows[0].score.toFixed(2)} / 4</small>}</article></div>
-      {c.id==='meal'&&mode==='record'&&<p className="insight">두 출장 사례는 항공편과 남은 시간이 같습니다. 규칙은 두 고객 모두에게 워크 라운지를 추천했습니다. Jev는 회의를 준비하는 고객에게 워크 라운지를, 식사를 포장하려는 고객에게 테이크아웃 식사권을 추천했습니다.</p>}
+      {c.id==='meal'&&mode==='record'&&<p className="insight">두 출장 사례는 항공편과 남은 시간이 같습니다. 규칙은 두 고객 모두에게 워크 라운지를 추천했습니다. Jev는 회의를 준비하는 고객에게 워크 라운지를, 샌드위치를 사 가려는 고객에게 테이크아웃 식사권을 추천했습니다.</p>}
       <details><summary>전체 순위와 제외된 상품</summary><p>규칙 점수는 미리 정한 가중치의 합입니다. Jev 점수는 0점(무관)부터 4점(필요를 직접 충족)까지입니다. 두 열은 각각 위에서부터 순서대로 읽으면 됩니다.</p>
       <div className="scroll"><table><thead><tr><th>순위</th><th>규칙 기반</th><th>{rightTitle}</th></tr></thead><tbody>{rules.map((r:Row,i:number)=><tr key={r.id}><td>{i+1}</td><td>{item(r.id).name} · {r.score}점</td><td>{result?.rows[i]?item(result.rows[i].id).name+' · '+result.rows[i].score.toFixed(2)+'점':'—'}</td></tr>)}</tbody></table></div><h4>이용 조건에서 제외된 상품</h4>{ctx.excluded.map((p:{id:string;reasons:string[]})=><p key={p.id}>{item(p.id).name} · {p.reasons.join(', ')}</p>)}</details>
     </section>

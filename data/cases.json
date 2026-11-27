@@ -4,7 +4,7 @@
     "title": "혼자 출장",
     "purpose": "출장",
     "transport": "공항철도",
-    "preference": "출발 전에 화상회의 자료를 마무리하고 싶다.",
+    "preference": "회의 자료를 조금만 더 손봐야 해요. 노트북 펴고 조용히 일할 곳이 있을까요?",
     "expected": "desk",
     "flight": "TYO",
     "minutes": 120
@@ -14,7 +14,7 @@
     "title": "아이 동반 가족",
     "purpose": "가족 여행",
     "transport": "공항철도",
-    "preference": "아이들이 놀 동안 가까이서 지켜보고 싶다.",
+    "preference": "아이들이 가만히 앉아 있질 못하네요. 애들은 좀 놀고 저희는 옆에서 지켜볼 만한 곳이 있을까요?",
     "expected": "family",
     "flight": "TYO",
     "minutes": 120
@@ -24,17 +24,17 @@
     "title": "고령 부부",
     "purpose": "부부 여행",
     "transport": "공항철도",
-    "preference": "긴 보행이 부담돼 탑승구 가까이 앉아 쉬고 싶다.",
+    "preference": "둘 다 오래 걸으면 다리가 아파요. 탑승구 가까운 데서 앉아 쉬고 싶어요.",
     "expected": "gate",
     "flight": "TYO",
     "minutes": 120
   },
   {
     "id": "meal",
-    "title": "식사가 급한 출장",
+    "title": "점심을 거른 출장객",
     "purpose": "출장",
     "transport": "공항철도",
-    "preference": "회의 준비는 끝났다. 식사를 포장해 탑승구로 가고 싶다.",
+    "preference": "아직 점심을 못 먹었어요. 탑승구 가는 길에 샌드위치 하나 사 갈 수 있을까요?",
     "expected": "meal",
     "flight": "TYO",
     "minutes": 120
@@ -44,7 +44,7 @@
     "title": "도착 직후 길찾기",
     "purpose": "부부 여행",
     "transport": "공항철도",
-    "preference": "도착하자마자 휴대폰으로 기차 노선을 찾아야 한다.",
+    "preference": "공항에 도착하면 바로 기차를 타야 해요. 내리자마자 휴대폰으로 노선을 찾아볼 수 있으면 좋겠어요.",
     "expected": "esim",
     "flight": "TYO",
     "minutes": 120
@@ -54,7 +54,7 @@
     "title": "자가용 출국",
     "purpose": "혼자 여행",
     "transport": "자가용",
-    "preference": "짐이 많아서 터미널 앞에서 차를 맡기고 싶다.",
+    "preference": "짐이 많아서 주차장까지 다녀오기가 번거로워요. 터미널 앞에서 바로 차를 맡길 수 있을까요?",
     "expected": "park",
     "flight": "TYO",
     "minutes": 120

@@ -23,7 +23,7 @@ export function baseline(ctx){
   return ctx.eligible.map(p=>({id:p.id,score:p.priority+(tags[ctx.customer.purpose]===p.tag?10:0)})).sort((a,b)=>b.score-a.score);
 }
 export function mock(ctx){
-  const patterns={desk:/회의 자료/,family:/아이들이 놀/,gate:/보행/,meal:/포장/,esim:/노선/,park:/차를 맡/};
+  const patterns={desk:/회의 자료/,family:/애들은 좀 놀/,gate:/오래 걸으면/,meal:/샌드위치/,esim:/노선/,park:/차를 맡/};
   return ctx.eligible.map(p=>({id:p.id,score:patterns[p.id]?.test(ctx.customer.preference)?4:1})).sort((a,b)=>b.score-a.score);
 }
 export function defaults(c){return {caseId:c.id,flight:c.flight,minutes:c.minutes,transport:c.transport}}
