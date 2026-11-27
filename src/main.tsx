@@ -38,8 +38,12 @@ function App(){
     <main><section className="intro"><h1>같은 항공편, 다른 추천</h1>
       <p><strong>Jev는 고객의 상황과 상품 설명을 읽고 상품별로 점수를 매기는 TypeSafe AI의 판단 모델입니다.</strong> 이 실험에서는 같은 항공편을 이용하는 고객에게 사전에 정한 규칙과 Jev가 각각 어떤 상품을 추천하는지 비교합니다.</p>
     </section>
-    <section className="scenario"><div className="line"><h2>고객의 여행 상황</h2>
-      <label>사례 선택 <select value={c.id} disabled={busy} onChange={e=>change(defaults(cases.find(x=>x.id===e.target.value)!))}>{cases.map(x=><option key={x.id} value={x.id}>{x.title}</option>)}</select></label></div>
+    <div className="experiment">
+    <section className="scenario"><h2>고객의 여행 상황</h2>
+      <div className="case-list" role="group" aria-label="고객 사례 선택">
+        {cases.map(x=><button type="button" key={x.id} disabled={busy} aria-pressed={x.id===c.id}
+          onClick={()=>change(defaults(x))}>{x.title}</button>)}
+      </div>
       <blockquote>“{c.preference}”</blockquote>
       <p className="sub">{c.purpose} · 인천 {ctx.flight.terminal} → {ctx.flight.city} ({ctx.flight.code}) · 출발 {input.minutes}분 전 · {input.transport}</p>
       <details className="settings"><summary>실행 방식과 여행 조건 변경</summary>
@@ -60,7 +64,7 @@ function App(){
       <details><summary>전체 순위와 제외된 상품</summary><p>규칙 점수는 미리 정한 가중치의 합입니다. Jev 점수는 0점(무관)부터 4점(필요를 직접 충족)까지입니다. 두 열은 각각 위에서부터 순서대로 읽으면 됩니다.</p>
       <div className="scroll"><table><thead><tr><th>순위</th><th>규칙 기반</th><th>{rightTitle}</th></tr></thead><tbody>{rules.map((r:Row,i:number)=><tr key={r.id}><td>{i+1}</td><td>{item(r.id).name} · {r.score}점</td><td>{result?.rows[i]?item(result.rows[i].id).name+' · '+result.rows[i].score.toFixed(2)+'점':'—'}</td></tr>)}</tbody></table></div><h4>이용 조건에서 제외된 상품</h4>{ctx.excluded.map((p:{id:string;reasons:string[]})=><p key={p.id}>{item(p.id).name} · {p.reasons.join(', ')}</p>)}</details>
     </section>
-    <section className="guide"><h2>결과 읽는 법</h2>
+    </div><section className="guide"><h2>결과 읽는 법</h2>
     <details><summary>추천 1회의 응답 시간과 예상 비용</summary>
     <p>{mode==='record'?'이 수치는 저장 당시 서버에서 측정한 값입니다. 공개 페이지에서 여러 번 재생해도 새로 청구되지 않습니다.':mode==='mock'?'모의 실험은 외부 API를 호출하지 않아 Jev 측정값이 없습니다.':'실시간 추천을 실행하면 이번 요청의 측정값을 확인할 수 있습니다.'}</p>
     <dl><dt>응답 시간{(measured||fallback)&&' · '+seconds+'초'}</dt><dd>서버가 Jev에 요청을 보내고 응답이나 오류를 처리하기까지 걸린 시간입니다. 1,000ms가 1초입니다. 고객이 화면을 여는 시간은 별도로 측정해야 합니다.</dd>
