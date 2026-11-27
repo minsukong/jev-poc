@@ -234,15 +234,15 @@ a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
 .request-copy { margin: 26px 0 24px; }
 .request-copy strong { color: #435771; font-size: 14px; }
 .request-copy blockquote { margin: 10px 0 0; font-size: clamp(20px, 2.6vw, 24px); font-weight: 620; line-height: 1.55; color: #182f4a; }
-.recorded .pick { background: #f2f7ff; padding: clamp(18px, 3vw, 28px); gap: 20px; }
-.recorded .pick h3 { margin: 8px 0 10px; }
-.recorded .pick p { line-height: 1.7; }
-.recorded .score { border-left: 1px solid #d4deea; padding-left: 24px; }
+.recommendation.pick { background: #f2f7ff; padding: clamp(18px, 3vw, 28px); gap: 20px; }
+.recommendation.pick h3 { margin: 8px 0 10px; }
+.recommendation.pick p { line-height: 1.7; }
+.recommendation .score { border-left: 1px solid #d4deea; padding-left: 24px; }
 .recorded > details:first-of-type { margin-top: 32px; }
 .recorded > details + details { margin-top: 12px; }
 @media (max-width: 600px) {
-  .recorded .pick { align-items: stretch; flex-direction: column; gap: 14px; }
-  .recorded .score { display: flex; align-items: baseline; gap: 10px; padding: 12px 0 0; border: 0; border-top: 1px solid #d4deea; }
+  .recommendation.pick { align-items: stretch; flex-direction: column; gap: 14px; }
+  .recommendation .score { display: flex; align-items: baseline; gap: 10px; padding: 12px 0 0; border: 0; border-top: 1px solid #d4deea; }
 
 }
 
@@ -264,3 +264,7 @@ a:not(.guide-link):not(:has(img)):is(:hover, :focus-visible) {
 .experiment .settings button { justify-self: start; }
 .experiment .pick { background: #f2f7ff; }
 .result-note { margin-bottom: 20px; }
+
+.rank-context { margin: 12px 0 24px; padding: 16px 20px; border-left: 4px solid #688dbc; border-radius: 6px; background: #f3f7fb; color: #244267; }
+.rank-context.caution { background: #fff5df; border-color: #b86a09; color: #713c07; }
+.rank-context p { color: inherit; margin-top: 6px; line-height: 1.7; }

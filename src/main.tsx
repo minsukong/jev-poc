@@ -1,3 +1,4 @@
+import {Recommendation} from './Recommendation';
 import departures from '../data/airport-snapshots.json';
 import {AirportLookup} from './AirportLookup';
 import {useState} from 'react';
@@ -17,7 +18,6 @@ function App(){
   const [view,setView]=useState<'airport'|'demo'>('airport');
   const [snapshotIndex,setSnapshotIndex]=useState(0);
   const snapshot=departures[snapshotIndex];
-  const recordedTop=item(snapshot.result.rows[0].id);
   const stamp=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(snapshot.capturedAt));
   const [mode,setMode]=useState<Mode>('record'),[input,setInput]=useState<Input>(defaults(cases[0]));
   const [live,setLive]=useState<Result|null>(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
@@ -55,10 +55,9 @@ function App(){
       <p className="source">{snapshot.date} 출발편 · {stamp} (한국시간) 조회 기록<br/>항공편 정보는 <a href="https://www.data.go.kr/data/15140153/openapi.do">인천국제공항공사 항공기 운항 현황 상세 조회 API</a>에서 가져왔습니다.</p>
       <div className="line"><h2>추천 상품</h2><small>가상 상품 · 실제 Jev 응답</small></div>
       <div className="request-copy"><strong>출장 고객의 요청</strong><blockquote>“{cases[0].preference}”</blockquote></div>
-      <article className="pick"><div><small>후보 {snapshot.result.rows.length}개 중 1위</small><h3>{recordedTop.name}</h3><p>{recordedTop.displayDescription}</p></div><div className="score"><small>적합도</small><strong>{snapshot.result.rows[0].score.toFixed(2)} <em>/ 4</em></strong></div></article>
-      {snapshot.result.rows.every(row => ['gate', 'meal'].includes(row.id)) && <p className="fit-notice"><strong>업무 공간을 찾는 고객에게는 추천하기 어렵습니다.</strong>이용 가능한 상품 중 조용한 업무 공간을 제공한다고 안내한 곳이 없습니다.</p>}
+      <Recommendation caseId={cases[0].id} minutes={snapshot.flight.minutes} result={snapshot.result} excluded={snapshot.result.excluded} unknownZone={!snapshot.flight.zone}/>
       <details><summary>추천 기준과 측정 결과</summary><div className="disclosure-body"><div className="inner"><p>인천공항 API가 제공한 터미널과 목적지, 출발까지 남은 시간으로 상품을 추렸습니다. 실제 보안검색 출국장과 상품까지의 도보 거리는 확인되지 않아 동·서편 전용 상품은 제외했습니다. Jev가 고객의 요청과 후보 상품의 설명을 읽고 적합도를 평가했습니다.</p><p>규칙 기반 1위 · {item(snapshot.result.rules[0].id).name}<br/>Jev 응답 시간 · {snapshot.result.elapsedMs}ms<br/>예상 API 비용 · ${snapshot.result.estimatedUsd.toFixed(8)} (입력 {snapshot.result.usage.input_tokens}토큰)</p><details className="raw-response"><summary>Jev 원본 응답 보기</summary><div className="disclosure-body"><div className="inner"><pre>{JSON.stringify(snapshot.result.raw,null,2)}</pre></div></div></details></div></div></details>
-      <details><summary>다른 실제 항공편 조회</summary><div className="disclosure-body"><div className="inner">{local?<AirportLookup caseId="business" transport="공항철도" productName={id=>item(id).name}/>:<p>공개 페이지에서는 조회 시점의 기록을 재생합니다. 다른 편명과 출발일은 인증키를 등록한 로컬 서버에서 조회할 수 있습니다.</p>}</div></div></details>
+      <details><summary>다른 실제 항공편 조회</summary><div className="disclosure-body"><div className="inner">{local?<AirportLookup caseId="business" transport="공항철도"/>:<p>공개 페이지에서는 조회 시점의 기록을 재생합니다. 다른 편명과 출발일은 인증키를 등록한 로컬 서버에서 조회할 수 있습니다.</p>}</div></div></details>
     </section>:<>    <section className="flight"><label>시연용 항공편<select aria-label="시연용 항공편" disabled={busy} value={input.flight} onChange={e=>change({...input,flight:e.target.value})}>{flights.map(f=><option key={f.id} value={f.id}>{f.code} · 인천 → {f.city}</option>)}</select></label>
     <div><small>출발 위치</small><strong>인천 {ctx.flight.terminal} · {ctx.flight.zone}</strong></div>
     <div><small>출발까지</small><strong>{input.minutes}분</strong></div></section>
@@ -75,7 +74,7 @@ function App(){
         {mode==='live'&&<button onClick={run} disabled={busy}>{busy?'요청 중…':'실시간 추천 실행'}</button>}
       </div></div>
       <div className="line"><h2>후보 결과</h2><small>{mode==='record'?'Jev 실측 재생':mode==='mock'?'모의 추천':'실시간 모드'}</small></div>
-      <article className="pick"><div><small>{top?'후보 1위':'추천 상태'}</small><h3>{top?item(top).name:rules.length?'실행 대기':'이용 가능한 상품 없음'}</h3><p>{top?item(top).displayDescription:''}</p></div>{top&&!fallback&&<div className="score"><small>{mode==='mock'?'모의 점수':'Jev 적합도'}</small><strong>{result!.rows[0].score.toFixed(2)} <em>/ 4</em></strong></div>}</article>
+      <Recommendation caseId={c.id} minutes={input.minutes} result={result} excluded={ctx.excluded}/>
       <h2>결과 해석과 주의사항</h2>
       {error&&<p role="alert">{error}</p>}{fallback&&<p role="alert">규칙 기반 대체 · {result?.error}</p>}
       <p className="result-note">{mode==='mock'?'모의 점수는 고객의 요청과 상품 설명에서 일치하는 문구로 계산합니다.':mode==='record'?'선택한 사례를 측정했을 때의 Jev 응답입니다.':fallback?'이번 순위는 백엔드 규칙으로 계산했습니다.':measured?'이번 요청에서 Jev가 매긴 적합도 순위입니다.':'실시간 추천을 실행하면 이 조건에서의 결과를 확인할 수 있습니다.'}</p>
