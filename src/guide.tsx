@@ -44,7 +44,7 @@ try {
     return Recommendation.fallback(baseline, failure.reason());
 }`;
 function Guide(){
-  return <><header className="mast"><img className="brand-logo" width="150" height="30" src={assets.logo} alt="더라운지"/><a href="./">시연 화면으로</a></header>
+  return <><header className="mast"><img className="brand-logo" width="150" height="30" src={assets.logo} alt="더라운지"/><a className="guide-link" href="./"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18"/></svg>시연 화면으로</a></header>
     <main className="handbook"><header className="lead"><h1>Jev 추천 도입 가이드</h1><p>같은 비행기를 타도 회의 자료를 마무리할 사람과 점심을 포장할 사람에게 필요한 상품은 다릅니다. 항공편으로 이용 가능한 상품을 추린 뒤, 고객의 말이 추천 순서에 어떻게 반영되는지 살펴봅니다.</p></header>
     <nav aria-label="가이드 목차">{[['role','Jev의 역할'],['flow','추천 흐름'],['java','Java 연동'],['cost','비용과 속도']].map(([id,label])=><a key={id} href={'#'+id}>{label}</a>)}</nav>
     <section id="role"><h2>Jev가 판단하는 것</h2><p>Jev는 TypeSafe AI의 판단 모델입니다. 서버가 고객 상황과 후보 상품 설명을 보내면, 미리 정한 질문에 점수·선택·확률로 답합니다. 이 서비스에서는 <strong>상품을 하나씩 평가한 점수</strong>로 추천 순위를 만듭니다.</p>
