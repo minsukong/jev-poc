@@ -22,6 +22,29 @@
 }
 .handbook nav a, .mast a, .handbook footer a { font-weight: 620; text-underline-offset: 4px; }
 .mast a { font-size: 15px; }
+.handbook nav a, .mast a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.handbook nav a::after, .mast a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -2px;
+  height: 2px;
+  background: currentColor;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease-out;
+}
+@media (hover: hover) {
+  .handbook nav a:hover::after, .mast a:hover::after { transform: scaleX(1); }
+}
+.handbook nav a:focus-visible::after, .mast a:focus-visible::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  .handbook nav a::after, .mast a::after { transition: none; }
+}
 
 .handbook > section {
   display: grid;
