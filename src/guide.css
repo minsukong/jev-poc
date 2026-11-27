@@ -117,3 +117,11 @@
   border-radius: 3px;
 }
 @media(max-width:600px){.handbook .java-source{padding:14px}}
+
+.handbook .reading-point, .handbook .reading-limit {
+  font-weight: 720;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.handbook .reading-point { color: #153f77; background: linear-gradient(transparent 72%, #deecff 72%); }
+.handbook .reading-limit { color: #753f0f; background: linear-gradient(transparent 72%, #ffe6b8 72%); }

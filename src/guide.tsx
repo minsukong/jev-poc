@@ -47,7 +47,7 @@ function Guide(){
   return <><header className="mast"><img className="brand-logo" width="150" height="30" src={assets.logo} alt="더라운지"/><a className="guide-link" href="./"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18"/></svg>시연 화면으로</a></header>
     <main className="handbook"><header className="lead"><h1>Jev 추천 도입 가이드</h1><p>같은 비행기를 타도 회의 자료를 마무리할 사람과 점심을 포장할 사람에게 필요한 상품은 다릅니다. 항공편으로 이용 가능한 상품을 추린 뒤, 고객의 말이 추천 순서에 어떻게 반영되는지 살펴봅니다.</p></header>
     <nav aria-label="가이드 목차">{[['role','Jev의 역할'],['value','도입 이점'],['flow','추천 흐름'],['java','Java 연동'],['cost','비용과 속도']].map(([id,label])=><a key={id} href={'#'+id}>{label}</a>)}</nav>
-    <section id="role"><h2>Jev가 판단하는 것</h2><p>Jev는 TypeSafe AI의 판단 모델입니다. 서버가 고객 상황과 후보 상품 설명을 보내면, 미리 정한 질문에 점수·선택·확률로 답합니다. 이 서비스에서는 <strong>상품을 하나씩 평가한 점수</strong>로 추천 순위를 만듭니다.</p>
+    <section id="role"><h2>Jev가 판단하는 것</h2><p>Jev는 TypeSafe AI의 판단 모델입니다. 서버가 고객 상황과 후보 상품 설명을 보내면, 미리 정한 질문에 점수·선택·확률로 답합니다. 이 서비스에서는 <strong className="reading-point">상품을 하나씩 평가한 점수</strong>로 추천 순위를 만듭니다.</p>
     <h3>한 고객에게 던진 세 가지 질문</h3>
     <p>점심을 거른 출장객은 탑승구로 가는 길에 샌드위치를 사고 싶다고 했습니다. 아래는 이 가상 사례에 Jev가 실제로 반환한 결과입니다.</p>
     <div className="decision-list">{decisions.map(d=><article key={d.type}>
@@ -61,18 +61,18 @@ function Guide(){
     <dt>개발</dt><dd>선호 조합마다 가중치를 추가하는 작업을 줄일 수 있습니다. 상품 설명이나 판단 기준을 바꾸면 기존 사례를 다시 실행해 순위를 확인합니다.</dd></dl></section>
     <section id="value"><h2>어떤 일에서 Jev가 도움이 될까요?</h2>
     <h3>“밥이 맛있는 라운지를 추천해 주세요”</h3>
-    <p>고객은 라운지 안에서 식사하고 싶고, 음식에 대한 평가도 중요하게 생각합니다. 백엔드가 이용 가능한 후보를 보내면 Jev는 이 요청을 후보별 설명과 함께 읽고 적합도 점수를 돌려줍니다. 개발자가 ‘밥’, ‘식사’, ‘한 끼’ 같은 표현을 각각 조건문으로 연결하는 수고를 줄일 수 있습니다.</p>
-    <dl className="responsibilities"><dt>현재 시연 데이터로 답할 수 있는 범위</dt><dd>패밀리 라운지 설명에는 ‘간식 제공’, 테이크아웃 식사권에는 ‘포장 식사 수령’이 있습니다. 어느 쪽에도 라운지 식사의 맛을 평가할 근거는 없습니다. 이 경우 고객에게는 “음식 평가를 확인할 수 있는 라운지가 없습니다”라고 안내하는 편이 적절합니다.</dd>
-    <dt>음식 평가를 제공한다면</dt><dd>예를 들어 서버가 라운지별 식사 제공 여부와 최근 이용객의 음식 만족도, 응답 수를 함께 보낼 수 있습니다. 그러면 Jev는 ‘밥이 맛있는 곳’이라는 표현을 그 정보와 연결해 후보를 평가할 수 있습니다. 현재 연동은 리뷰를 검색하거나 수집하지 않습니다.</dd></dl>
+    <p>고객은 라운지 안에서 식사하고 싶고, 음식에 대한 평가도 중요하게 생각합니다. 백엔드가 이용 가능한 후보를 보내면 Jev는 이 <strong className="reading-point">요청을 후보별 설명과 함께 읽고 적합도 점수를 돌려줍니다</strong>. 개발자가 ‘밥’, ‘식사’, ‘한 끼’ 같은 표현을 각각 조건문으로 연결하는 수고를 줄일 수 있습니다.</p>
+    <dl className="responsibilities"><dt>현재 시연 데이터로 답할 수 있는 범위</dt><dd>패밀리 라운지 설명에는 ‘간식 제공’, 테이크아웃 식사권에는 ‘포장 식사 수령’이 있습니다. 어느 쪽에도 <strong className="reading-limit">라운지 식사의 맛을 평가할 근거는 없습니다</strong>. 이 경우 고객에게는 “음식 평가를 확인할 수 있는 라운지가 없습니다”라고 안내하는 편이 적절합니다.</dd>
+    <dt>음식 평가를 제공한다면</dt><dd>예를 들어 서버가 라운지별 식사 제공 여부와 <strong className="reading-point">최근 이용객의 음식 만족도, 응답 수</strong>를 함께 보낼 수 있습니다. 그러면 Jev는 ‘밥이 맛있는 곳’이라는 표현을 그 정보와 연결해 후보를 평가할 수 있습니다. 현재 연동은 리뷰를 검색하거나 수집하지 않습니다.</dd></dl>
     <h3>선택지를 써도 이점이 있을까요?</h3>
-    <p>‘식사’를 고르면 늘 같은 상품을 보여주는 서비스는 태그 조회만으로 구현할 수 있습니다. Jev의 이점이 생길 수 있는 곳은 ‘조용히 일하면서 식사도 하고 싶다’처럼 요구가 겹치고, 상품 구성이 자주 달라지는 경우입니다. 새 라운지에 업무석과 식사 서비스가 추가되면 설명을 갱신하고 같은 평가 질문을 다시 써 볼 수 있습니다.</p>
-    <p>Java 백엔드는 계속 터미널과 남은 시간 등 필수 조건을 확인하고, 호출 실패와 추천 보류를 처리합니다. 요청이 무관하거나 근거가 부족해도 1위는 나올 수 있어, 고객에게 권할 기준은 별도로 검증해야 합니다.</p>
+    <p>‘식사’를 고르면 늘 같은 상품을 보여주는 서비스는 <strong className="reading-point">태그 조회만으로 구현할 수 있습니다</strong>. Jev의 이점이 생길 수 있는 곳은 ‘조용히 일하면서 식사도 하고 싶다’처럼 <strong className="reading-point">요구가 겹치고, 상품 구성이 자주 달라지는 경우</strong>입니다. 새 라운지에 업무석과 식사 서비스가 추가되면 설명을 갱신하고 같은 평가 질문을 다시 써 볼 수 있습니다.</p>
+    <p>Java 백엔드는 계속 터미널과 남은 시간 등 <strong className="reading-point">필수 조건을 확인하고, 호출 실패와 추천 보류를 처리합니다</strong>. 요청이 무관하거나 근거가 부족해도 1위는 나올 수 있어, <strong className="reading-limit">고객에게 권할 기준은 별도로 검증해야 합니다</strong>.</p>
     <h3>개발 부담이 실제로 줄었는지 확인하는 방법</h3>
-    <p>현재 시연에서 확인한 것은 같은 출장 조건에서도 요청에 따라 Jev의 1위가 달라졌다는 점입니다. 개발 시간 절감은 아직 측정하지 않았습니다. 같은 고객 요청과 새 복합 상품을 태그 규칙과 Jev에 각각 넣고, 양쪽에서 바꾼 코드·태그·설명과 기대 결과 일치 여부를 비교하면 도입 가치를 판단할 수 있습니다.</p></section>
+    <p>현재 시연에서 확인한 것은 같은 출장 조건에서도 <strong className="reading-point">요청에 따라 Jev의 1위가 달라졌다</strong>는 점입니다. <strong className="reading-limit">개발 시간 절감은 아직 측정하지 않았습니다</strong>. 같은 고객 요청과 새 복합 상품을 태그 규칙과 Jev에 각각 넣고, 양쪽에서 바꾼 코드·태그·설명과 기대 결과 일치 여부를 비교하면 도입 가치를 판단할 수 있습니다.</p></section>
     <section id="flow"><h2>항공편 한 건이 추천으로 바뀌는 과정</h2><Diagram image={assets.flow} alt="항공편 입력, 운항정보 조회, 백엔드 필터, Jev 평가와 상품 반환 흐름" caption="현재 Node.js PoC에서 확인한 데이터 흐름"/>
     <h3>{example.flight.code}에서 확인한 결과</h3><p> 인천공항 API는 인천 {example.flight.terminal}, 탑승구 {example.flight.gate}번을 반환했습니다. 서버는 터미널·목적지·남은 시간과 가상 고객의 이동 수단을 확인했습니다. 동·서편 위치는 확인할 수 없어 해당 구역 전용 상품은 제외했습니다.</p>
     <p className="fit-notice"><strong>이 고객에게 업무용으로 권할 만한 상품은 없었습니다.</strong> 게이트 옆 휴게석은 앉아서 쉴 수 있지만, 고객이 찾던 조용한 업무 공간은 상품 설명에서 확인되지 않았습니다.</p>
-    <p>Jev 적합도는 4점 만점에 휴게석 {example.result.rows[0].score.toFixed(2)}점, 테이크아웃 식사권 {example.result.rows[1].score.toFixed(2)}점이었습니다. 시연 화면의 ‘후보 1위’는 두 상품 중 점수가 더 높은 휴게석을 가리킵니다.</p></section>
+    <p>Jev 적합도는 4점 만점에 휴게석 {example.result.rows[0].score.toFixed(2)}점, 테이크아웃 식사권 {example.result.rows[1].score.toFixed(2)}점이었습니다. 시연 화면의 <strong className="reading-limit">‘후보 1위’는 두 상품 중 점수가 더 높은 휴게석</strong>을 가리킵니다.</p></section>
     <section id="java"><h2>Java 백엔드에 붙이는 방법</h2><p>시연 서버는 Node.js로 동작합니다. 아래는 더라운지 가이드의 화면·백엔드·외부 API 구분을 따른 <strong>Java 적용 예시</strong>입니다. 실제 Spring 버전과 운영 API 계약은 백엔드팀이 사용하는 기준에 맞춥니다.</p>
     <ol className="steps"><li><strong>추천 요청을 받습니다.</strong> 컨트롤러에서 출발일·편명과 허용한 여행 조건을 검증합니다. 항공사 예약번호나 고객 이름은 이 판단에 필요하지 않습니다.</li><li><strong>상품 후보를 만듭니다.</strong> 서비스에서 운항정보를 조회하고 상품 DB의 이용 조건을 적용합니다. 위치가 미정이면 해당 위치가 필요한 상품을 제외합니다. 후보가 없으면 여기서 종료합니다.</li><li><strong>Jev 호출을 어댑터에 모읍니다.</strong> 예를 들어 Spring의 HTTP 클라이언트로 <code>POST /v1/systemone</code>을 호출합니다. 서버 환경변수의 키를 Bearer 인증에 사용하고, <code>state</code>에는 필요한 여행 맥락과 후보 설명을, <code>questions</code>에는 후보별 Score 질문을 넣습니다. 한 요청으로 여러 후보를 평가할 수 있습니다.</li><li><strong>결과를 검증하고 반환합니다.</strong> 후보마다 점수가 하나씩 있고 0~4 범위인지 확인합니다. 정렬한 상품 ID를 서버의 상품 정보와 결합해 화면으로 보냅니다. 호출 시간, 사용량, 오류와 대체 여부를 기록하면 추천 품질과 운영 비용을 함께 점검할 수 있습니다.</li></ol>
     <Diagram image={assets.fallback} alt="후보 없음, 정상 응답, Jev 장애 시 Java 서비스의 반환 경로" caption="Java 추천 서비스 설계 예시"/>
@@ -94,12 +94,12 @@ var request = HttpRequest.newBuilder(URI.create("https://api.typesafe.ai/v1/syst
     .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(body)))
     .build();
 var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());`}</JavaCode><p><code>apiKey</code>는 서버에서 읽고 HTTP 클라이언트는 재사용합니다. 2xx 응답이면 <code>answers.fit_desk.score</code>가 숫자이며 범위 안인지 검사합니다. 운영 서비스에서는 호출 제한 시간을 전체 응답 예산에 맞게 조정합니다.</p></div></div></details>
-    <p>장애 처리도 단계마다 다릅니다. 항공편이 확인되지 않으면 조회 실패를 표시합니다. 항공편과 후보까지 확인한 뒤 Jev 호출만 실패하면, 같은 후보에서 미리 계산한 규칙 순위를 돌려줍니다.</p></section>
+    <p>장애 처리도 단계마다 다릅니다. 항공편이 확인되지 않으면 조회 실패를 표시합니다. 항공편과 후보까지 확인한 뒤 Jev 호출만 실패하면, <strong className="reading-point">같은 후보에서 미리 계산한 규칙 순위</strong>를 돌려줍니다.</p></section>
     <section id="cost"><h2>추천 한 번의 비용과 응답 시간</h2><p>2026년 11월 27일에 실제 출발편 세 건으로 측정했습니다. 운항정보는 인천공항 API, 고객과 상품은 가상 데이터, 점수는 Jev의 실제 응답입니다.</p>
     <div className="scroll"><table><caption>실제 출발편별 Jev 호출 기록</caption><thead><tr>{['항공편','응답 시간','입력 토큰','추정 API 비용'].map(t=><th key={t}>{t}</th>)}</tr></thead><tbody>{departures.map(d=><tr key={d.flight.code}><th scope="row">{d.flight.code}</th><td>{d.result.elapsedMs} ms</td><td>{d.result.usage.input_tokens}</td><td>${d.result.estimatedUsd.toFixed(8)}</td></tr>)}</tbody></table></div>
-    <h3>응답 시간</h3><p> 이 세 요청에서 서버가 Jev에 요청하고 결과를 검증하기까지 {Math.min(...times)}~{Math.max(...times)}ms가 걸렸습니다. 항공편 조회와 화면 표시 시간은 별도입니다. 규칙만 계산하면 외부 호출이 생략됩니다. 일반 생성형 모델과의 속도 차이는 이번 시연에서 측정하지 않았습니다.</p>
-    <h3>호출 비용</h3><p> 입력 100만 토큰당 $0.042이고 출력은 무료입니다. 세 건의 평균 입력량이 유지된다면 추천 1,000건의 Jev 비용은 약 ${(meanCost*1000).toFixed(3)}입니다. 후보가 늘거나 상품 설명이 길어지면 입력량도 늘어납니다. 서버 운영비는 별도입니다. <a href="https://help.typesafe.ai/articles/5187202169-how-much-does-jev-cost">공식 요금표</a></p>
-    <h3>도입을 결정하기 전에</h3><p>실제 상품으로 별도의 평가 사례를 만들고 규칙과 Jev의 1위를 비교합니다. 특히 적합한 상품이 없는 사례에서 추천을 보류할 기준을 정해야 합니다. 운영 전에는 동시 요청 시 응답 시간, 대체 비율, 추천 클릭·구매 변화도 확인합니다.</p></section>
+    <h3>응답 시간</h3><p> 이 세 요청에서 서버가 Jev에 요청하고 결과를 검증하기까지 <strong className="reading-point">{Math.min(...times)}~{Math.max(...times)}ms</strong>가 걸렸습니다. 항공편 조회와 화면 표시 시간은 별도입니다. 규칙만 계산하면 외부 호출이 생략됩니다. 일반 생성형 모델과의 속도 차이는 이번 시연에서 측정하지 않았습니다.</p>
+    <h3>호출 비용</h3><p> 입력 100만 토큰당 $0.042이고 출력은 무료입니다. 세 건의 평균 입력량이 유지된다면 <strong className="reading-point">추천 1,000건의 Jev 비용은 약 ${(meanCost*1000).toFixed(3)}</strong>입니다. 후보가 늘거나 상품 설명이 길어지면 입력량도 늘어납니다. 서버 운영비는 별도입니다. <a href="https://help.typesafe.ai/articles/5187202169-how-much-does-jev-cost">공식 요금표</a></p>
+    <h3>도입을 결정하기 전에</h3><p>실제 상품으로 별도의 평가 사례를 만들고 규칙과 Jev의 1위를 비교합니다. 특히 적합한 상품이 없는 사례에서 <strong className="reading-limit">추천을 보류할 기준</strong>을 정해야 합니다. 운영 전에는 동시 요청 시 응답 시간, 대체 비율, 추천 클릭·구매 변화도 확인합니다.</p></section>
     <footer><a href="./">시연 화면으로 돌아가기</a> · <a href="https://api.typesafe.ai/redoc">TypeSafe API 명세</a> · <a href="https://www.data.go.kr/data/15140153/openapi.do">인천공항 운항정보 API</a></footer>
     </main></>;
 }
