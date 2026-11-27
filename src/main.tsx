@@ -62,17 +62,23 @@ function App(){
     </section>:<>    <section className="flight"><label>시연용 항공편<select aria-label="시연용 항공편" disabled={busy} value={input.flight} onChange={e=>change({...input,flight:e.target.value})}>{flights.map(f=><option key={f.id} value={f.id}>{f.code} · 인천 → {f.city}</option>)}</select></label>
     <div><small>출발 위치</small><strong>인천 {ctx.flight.terminal} · {ctx.flight.zone}</strong></div>
     <div><small>출발까지</small><strong>{input.minutes}분</strong></div></section>
-    <section className="results"><div className="line"><h2>추천 상품</h2><small>{mode==='record'?'Jev 실측 재생':mode==='mock'?'모의 추천':'실시간 모드'}</small></div>
-    <label className="traveler">고객 상황<select disabled={busy} value={c.id} onChange={e=>change({...defaults(cases.find(x=>x.id===e.target.value)!),flight:input.flight})}>{cases.map(x=><option value={x.id} key={x.id}>{x.title}</option>)}</select></label>
-    <p className="quote">“{c.preference}”</p>
-    {error&&<p role="alert">{error}</p>}{fallback&&<p role="alert">규칙 기반 대체 · {result?.error}</p>}
-    <article className="pick"><div><small>{top?'후보 1위':'추천 상태'}</small><h3>{top?item(top).name:rules.length?'실행 대기':'이용 가능한 상품 없음'}</h3><p>{top?item(top).displayDescription:''}</p></div>{top&&!fallback&&<div className="score"><small>{mode==='mock'?'모의 점수':'Jev 적합도'}</small><strong>{result!.rows[0].score.toFixed(2)} <em>/ 4</em></strong></div>}</article>
-    {mode==='live'&&<button onClick={run} disabled={busy}>{busy?'요청 중…':'실시간 추천 실행'}</button>}
-      <details className="settings"><summary>실행 방식과 여행 조건 변경</summary><div className="disclosure-body"><div className="inner">
-        <label>실행 방식 <select value={mode} disabled={busy} onChange={e=>switchMode(e.target.value as Mode)}><option value="record">저장한 Jev 응답 재생</option><option value="mock">모의 실험 (Mock)</option><option value="live" disabled={!local}>로컬 서버로 Jev 실시간 호출</option></select></label>
+    <section className="results experiment">
+      <h2 id="customer-heading">고객 상황</h2>
+      <div className="customer-context"><select aria-labelledby="customer-heading" disabled={busy} value={c.id} onChange={e=>change({...defaults(cases.find(x=>x.id===e.target.value)!),flight:input.flight})}>{cases.map(x=><option value={x.id} key={x.id}>{x.title}</option>)}</select>
+    <p className="quote">“{c.preference}”</p></div>
+      <h2>실행 방식</h2>
+      <div className="settings"><div className="inner">
+        <label>추천 실행 모드 <select value={mode} disabled={busy} onChange={e=>switchMode(e.target.value as Mode)}><option value="record">저장한 Jev 응답 재생</option><option value="mock">모의 실험 (Mock)</option><option value="live" disabled={!local}>로컬 서버로 Jev 실시간 호출</option></select></label>
         <p>{mode==='record'?'저장된 Jev 응답을 재생합니다. 이동 수단이나 남은 시간을 바꾸려면 ‘모의 실험’을 선택하세요.':mode==='mock'?'이동 수단이나 남은 시간을 바꾸면 예시 순위가 달라집니다. 모의 실험은 API를 호출하지 않습니다.':'여행 조건을 선택한 뒤 ‘실시간 추천 실행’을 누르면 로컬 서버에서 Jev를 호출합니다.'}</p>
         <fieldset disabled={busy||mode==='record'}><label>공항 이동<select value={input.transport} onChange={e=>change({...input,transport:e.target.value})}>{['공항철도','자가용','택시'].map(v=><option key={v}>{v}</option>)}</select></label>
-        <label>출발까지<select value={input.minutes} onChange={e=>change({...input,minutes:+e.target.value})}>{[10,30,60,120,180].map(v=><option key={v} value={v}>{v}분</option>)}</select></label></fieldset></div></div></details>
+        <label>출발까지<select value={input.minutes} onChange={e=>change({...input,minutes:+e.target.value})}>{[10,30,60,120,180].map(v=><option key={v} value={v}>{v}분</option>)}</select></label></fieldset>
+        {mode==='live'&&<button onClick={run} disabled={busy}>{busy?'요청 중…':'실시간 추천 실행'}</button>}
+      </div></div>
+      <div className="line"><h2>후보 결과</h2><small>{mode==='record'?'Jev 실측 재생':mode==='mock'?'모의 추천':'실시간 모드'}</small></div>
+      <article className="pick"><div><small>{top?'후보 1위':'추천 상태'}</small><h3>{top?item(top).name:rules.length?'실행 대기':'이용 가능한 상품 없음'}</h3><p>{top?item(top).displayDescription:''}</p></div>{top&&!fallback&&<div className="score"><small>{mode==='mock'?'모의 점수':'Jev 적합도'}</small><strong>{result!.rows[0].score.toFixed(2)} <em>/ 4</em></strong></div>}</article>
+      <h2>결과 해석과 주의사항</h2>
+      {error&&<p role="alert">{error}</p>}{fallback&&<p role="alert">규칙 기반 대체 · {result?.error}</p>}
+      <p className="result-note">{mode==='mock'?'모의 점수는 고객의 요청과 상품 설명에서 일치하는 문구로 계산합니다.':mode==='record'?'선택한 사례를 측정했을 때의 Jev 응답입니다.':fallback?'이번 순위는 백엔드 규칙으로 계산했습니다.':measured?'이번 요청에서 Jev가 매긴 적합도 순위입니다.':'실시간 추천을 실행하면 이 조건에서의 결과를 확인할 수 있습니다.'}</p>
       <details><summary>규칙 기반 추천과 Jev 비교</summary><div className="disclosure-body"><div className="inner"><p>백엔드가 이용 조건에 맞는 상품 {ctx.eligible.length}개를 추립니다. Jev는 고객의 필요와 상품 설명을 읽고 각 후보의 적합도를 평가하는 TypeSafe AI의 모델입니다.</p>
       <div className="pair"><article><small>규칙 기반 추천</small><h3>{winner?item(winner.id).name:'후보 없음'}</h3><p>{ruleNote}</p></article>
         <article className="decision"><small>{rightTitle}</small><h3>{top?item(top).name:ctx.eligible.length?'실행 대기':'후보 없음'}</h3><p>{fallback?ruleNote:top?item(top).displayDescription:'이 조건에서 표시할 추천 결과가 없습니다.'}</p>
@@ -80,8 +86,7 @@ function App(){
       {c.id==='meal'&&isPreset&&mode==='record'&&<p className="insight">두 출장 사례는 항공편과 남은 시간이 같습니다. 규칙은 두 고객 모두에게 워크 라운지를 추천했습니다. Jev는 회의를 준비하는 고객에게 워크 라운지를, 샌드위치를 사 가려는 고객에게 테이크아웃 식사권을 추천했습니다.</p>}
       </div></div></details><details><summary>전체 순위와 제외된 상품</summary><div className="disclosure-body"><div className="inner"><p>규칙 점수는 미리 정한 가중치의 합입니다. Jev 점수는 0점(무관)부터 4점(필요를 직접 충족)까지입니다. 두 열은 각각 위에서부터 순서대로 읽으면 됩니다.</p>
       <div className="scroll"><table className="rankings"><thead><tr><th>순위</th><th>규칙 기반</th><th>{rightTitle}</th></tr></thead><tbody>{rules.map((r:Row,i:number)=><tr key={r.id}><td>{i+1}</td><td><span>{item(r.id).name}<b>{r.score}점</b></span></td><td>{result?.rows[i]?<span>{item(result.rows[i].id).name}<b>{result.rows[i].score.toFixed(2)}점</b></span>:'—'}</td></tr>)}</tbody></table></div><section className="excluded"><h4>이용 조건에서 제외된 상품</h4><dl>{ctx.excluded.map((p:{id:string;reasons:string[]})=><div key={p.id}><dt>{item(p.id).name}</dt><dd>{p.reasons.join(', ')}</dd></div>)}</dl></section></div></div></details>
-    </section>
-    <section className="guide"><h2>결과 읽는 법</h2>
+
     <details><summary>추천 1회의 응답 시간과 예상 비용</summary><div className="disclosure-body"><div className="inner">
     <p>{mode==='record'?'이 수치는 저장 당시 서버에서 측정한 값입니다. 공개 페이지에서 여러 번 재생해도 새로 청구되지 않습니다.':mode==='mock'?'모의 실험은 외부 API를 호출하지 않아 Jev 측정값이 없습니다.':'실시간 추천을 실행하면 이번 요청의 측정값을 확인할 수 있습니다.'}</p>
     <dl><dt>응답 시간{(measured||fallback)&&' · '+seconds+'초'}</dt><dd>서버가 Jev에 요청을 보내고 응답이나 오류를 처리하기까지 걸린 시간입니다. 1,000ms가 1초입니다. 고객이 화면을 여는 시간은 별도로 측정해야 합니다.</dd>
