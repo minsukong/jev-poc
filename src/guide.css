@@ -26,24 +26,27 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
+  transition: color 200ms ease-out;
 }
 .handbook nav a::after, .mast a::after {
   content: "";
   position: absolute;
   inset: auto 0 -2px;
   height: 2px;
-  background: currentColor;
+  background: #559cff;
   pointer-events: none;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 200ms ease-out;
 }
 @media (hover: hover) {
+  .handbook nav a:hover, .mast a:hover { color: #1765d8; }
   .handbook nav a:hover::after, .mast a:hover::after { transform: scaleX(1); }
 }
+.handbook nav a:focus-visible, .mast a:focus-visible { color: #1765d8; }
 .handbook nav a:focus-visible::after, .mast a:focus-visible::after { transform: scaleX(1); }
 @media (prefers-reduced-motion: reduce) {
-  .handbook nav a::after, .mast a::after { transition: none; }
+  .handbook nav a, .mast a, .handbook nav a::after, .mast a::after { transition: none; }
 }
 
 .handbook > section {
