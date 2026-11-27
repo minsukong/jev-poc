@@ -9,7 +9,7 @@
 .mast{display:flex;align-items:baseline;justify-content:space-between;padding:15px max(5vw,calc((100vw - 880px)/2));border-bottom:1px solid #dfe5ec}.mast div{font-size:20px;letter-spacing:.04em;font-weight:820;color:#164ba9}.mast span{font-size:12px;letter-spacing:0}.mast small,small{font-size:13px;color:#52647a}
 .intro{display:grid;grid-template-columns:1fr 32%;gap:30px;align-items:center;margin:26px 0 20px}.photo{height:120px;background:url('./assets/lounge.webp') center right/cover;border-radius:8px}
 h1{font-size:clamp(29px,4vw,40px);line-height:1.18;letter-spacing:-.035em;margin-bottom:8px}h2{font-size:23px;letter-spacing:-.025em}h3{font-size:23px;line-height:1.35}p,dd{color:#47586c}
-.flight{display:grid;grid-template-columns:minmax(220px,1.25fr) 1fr .7fr;gap:22px;align-items:center;background:#f4f7fc;border:1px solid #dce4ef;border-radius:10px;padding:17px 22px}.flight small,.flight label,.traveler{font-size:14px;color:#3e536d}.flight strong,.flight select{display:block}.flight strong{font-size:18px}.flight select{margin-top:3px;width:100%;font-weight:650}
+.flight{display:grid;grid-template-columns:minmax(280px,1.5fr) minmax(0,1fr) minmax(0,.7fr);gap:22px;align-items:center;background:#f4f7fc;border:1px solid #dce4ef;border-radius:10px;padding:17px 22px}.flight small,.flight label,.traveler{font-size:14px;color:#3e536d}.flight strong,.flight select{display:block}.flight strong{font-size:18px}.flight select{margin-top:3px;width:100%;font-weight:650}
 select,input,button{font:inherit;border:1px solid #b0bed1;color:#203957;background:white;padding:8px 10px;border-radius:6px}button{cursor:pointer;background:#1554bd;color:white;border-color:#1554bd}button:disabled{opacity:.55}
 a{color:#1554bd}
 details {
